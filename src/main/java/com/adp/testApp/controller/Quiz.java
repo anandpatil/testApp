@@ -1,12 +1,18 @@
 package com.adp.testApp.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 import org.springframework.util.Assert;
+
+import com.mysql.jdbc.Clob;
 
 /**
  * 1. Implement the function foobar.
@@ -145,34 +151,37 @@ class Quiz {
 	}
 
 	public static void main(String[] args) {
-	
-		Set<TreeNode> set=new LinkedHashSet<TreeNode>();
-
-		TreeNode tn = new TreeNode();
-		tn.value = 0;
-		TreeNode tn1 = new TreeNode();
-		tn1.value = 1;
-		tn.leftSubtree = tn1;
-		set.add(tn);
-		
-		TreeNode tn2 = new TreeNode();
-		tn2.value = 2;
-		tn.rightSubtree = tn2;
-
-		TreeNode tn3 = new TreeNode();
-		tn3.value = 3;
-		tn2.leftSubtree = tn3;
-		//
-		TreeNode tn4 = new TreeNode();
-		tn4.value = 4;
-		tn2.rightSubtree = tn4;
-		
-		System.out.println(treeSum(tn));
-		System.out.println(traverse(tn.leftSubtree,tn));
-		foobar();
-		
-		System.out.println("isPalindrome:" + isPalindrome(new char[]{'a','a'}));
-		System.out.println(sumExists(new int[]{1, 5, 2, 10, 13},18));
+//	
+//		Set<TreeNode> set=new LinkedHashSet<TreeNode>();
+//
+//		TreeNode tn = new TreeNode();
+//		tn.value = 0;
+//		TreeNode tn1 = new TreeNode();
+//		tn1.value = 1;
+//		tn.leftSubtree = tn1;
+//		set.add(tn);
+//		
+//		TreeNode tn2 = new TreeNode();
+//		tn2.value = 2;
+//		tn.rightSubtree = tn2;
+//
+//		TreeNode tn3 = new TreeNode();
+//		tn3.value = 3;
+//		tn2.leftSubtree = tn3;
+//		//
+//		TreeNode tn4 = new TreeNode();
+//		tn4.value = 4;
+//		tn2.rightSubtree = tn4;
+//		
+//		System.out.println(treeSum(tn));
+//		System.out.println(traverse(tn.leftSubtree,tn));
+//		foobar();
+//		
+//		System.out.println("isPalindrome:" + isPalindrome(new char[]{'a','a'}));
+//		System.out.println(sumExists(new int[]{1, 5, 2, 10, 13},18));
+//		
+//		
+		createFileDir();
 	}
 	public static int traverse (TreeNode current, TreeNode parent) {
 		int sum = 0;
@@ -193,4 +202,31 @@ class Quiz {
 		  }
 		  return sum;
 		}
+	
+//	public static void createFileDir(){
+//		
+//		Path dir = ...;
+//		Files.createDirectory(path);
+//		FileSystems
+//
+//	}
+	
+	public abstract interface testI{
+		
+		public abstract void test();
+	}
+	public class test{
+		int userID;
+		String userName;
+		BigDecimal number;
+		Clob image;	
+		
+	}
+	
+	
+
 }
+
+
+
+
