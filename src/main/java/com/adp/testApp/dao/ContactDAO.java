@@ -19,18 +19,6 @@ public class ContactDAO implements ContactDAOI {
 		// TODO Auto-generated method stub
 		System.out.println("in DAO");
 		sessionFactory.openSession().save(contact);
-		Patient pat=new Patient();
-		pat.setFirstname("Patien1");
-		pat.setLastname("patientlast1");
-		sessionFactory.getCurrentSession().save(pat);
-		Address address=new Address();	
-		address.setStreet1("houston");
-		address.setPatient_add_id(pat.getPatientId());
-		pat.getAddress().add(address);
-		
-		//address.setPatient(pat);
-		//insert into Address (addresstype, patientid, street1, street2, patient_add_id) values (?, ?, ?, ?, ?)
-		sessionFactory.getCurrentSession().save(address);
 		//sessionFactory.getCurrentSession().getTransaction().commit();
         System.out.println("DAO saved");
 	}

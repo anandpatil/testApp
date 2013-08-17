@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.annotation.ModelAndViewResolver;
 
 import com.adp.testApp.forms.Contact;
 import com.adp.testApp.services.ContactServiceI;
+import com.adp.testApp.services.PatientServiceI;
 
 @Controller
 public class ContactController {
@@ -36,11 +37,18 @@ public String redirectTo(Map<String, Object> map){
 }
 	@Autowired
 	ContactServiceI contactServ;
+	 
+	@Autowired
+	PatientServiceI patientServ;
 	@RequestMapping(value="/addContact", method=RequestMethod.POST)
 	public String addContact(@ModelAttribute("contact")Contact contact,BindingResult result){
 		
 		contactServ.addContact(contact);
-		System.out.println("/addContact hit");
+		
+		
+		
+		patientServ.admitPatient();
+		System.out.println("/ AFTER PATIENT addContact hit");
 		return "redirect:/list";
 		
 	}
@@ -65,13 +73,13 @@ public String redirectTo(Map<String, Object> map){
 
 		Contact contact= new Contact();
 		contact.setFirstname("anandpatil");
-	contact.setTelephone("4084808149");
+		contact.setTelephone("4084808149");
 		//return "ContactList";
 		System.out.println("/jqlist hit");
 		String result = "result:(tttt)";
 		HttpHeaders responseHeaders = new HttpHeaders();
 		
-		 return new ResponseEntity<Contact>(contact, responseHeaders, HttpStatus.OK);
+		 return new ResponseEntity<List>( contactServ.listContacts(), responseHeaders, HttpStatus.OK);
 		
 	}  
 }

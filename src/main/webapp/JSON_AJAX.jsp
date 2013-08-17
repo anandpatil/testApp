@@ -13,7 +13,7 @@
 			<td><input type="text" size="8"></input></td>
 			
 		</tr>
-		<tr><input type="submit" size="8"></input></tr>
+		<tr><input name="register" type="submit" size="8" value="Register"></input></tr>
 	</table>
 
 </body>

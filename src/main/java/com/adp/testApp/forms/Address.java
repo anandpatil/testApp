@@ -14,23 +14,42 @@ import javax.persistence.Transient;
 @javax.persistence.Table(name="Address")
 public class Address {
 	
-@Id
-	@Column(name="patient_add_id")
-	int patient_add_id;
-	
-	public int getPatient_add_id() {
-		return patient_add_id;
-	}
 
-	public void setPatient_add_id(int id) {
-		this.patient_add_id = id;
-	}
+@Id
+@Column(name="addressId")
+@GeneratedValue
+int addressId;
+
+public int getAddressId() {
+	return addressId;
+}
+
+public void setAddressId(int addressId) {
+	this.addressId = addressId;
+}
+
+
 	
-	@ManyToOne//(cascade = {CascadeType.PERSIST})
-    //@org.hibernate.annotations.Cascade(value = org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinColumn(name = "patientid", nullable = false, insertable=false,updatable=false)
+	
+
+	 @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name="patientid",insertable=false, updatable=false, 
+                nullable=false)
+	
 	private Patient patient;
 		
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+
+
+
 
 	@Column(name="addresstype")
 	String addressType;

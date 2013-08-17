@@ -5,8 +5,8 @@ create database userdb;
 CREATE TABLE CONTACTS (     id     INT PRIMARY KEY AUTO_INCREMENT,     firstname    VARCHAR(30),     lastname    VARCHAR(30),     telephone   VARCHAR(15),     email         VARCHAR(30),     created     TIMESTAMP DEFAULT NOW() ); 
 create table patient(patientid INT PRIMARY KEY AUTO_INCREMENT ,pfname varchar(25),lname varchar(25));
 ALTER TABLE patient ADD CONSTRAINT pk_patient PRIMARY KEY(patientid)
-create table address( patient_add_id INT PRIMARY KEY, addresstype varchar(1),street1 varchar(25),street2 varchar(25), 
-constraint patfk foreign key(patient_add_id) references patient(patientid)  );
+create table address( addressId     INT PRIMARY KEY AUTO_INCREMENT, patientid INT not null , addresstype varchar(1),street1 varchar(25),street2 varchar(25), 
+constraint patfk foreign key(patientid) references patient(patientid)  );
 mysql>show databases;
 mysql> use userdb;
 mysql>show tables;
